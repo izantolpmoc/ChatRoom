@@ -43,7 +43,7 @@ public class Connection extends Thread{
                 String command = inchan.readLine();
                 System.out.println(">>> message received: " + command);
                 // close the connection when receiving ""
-                if (command.equals("")) {
+                if (command.equals("\\quit")) {
                     //lets users know this user is no longer available
                     clientRoom.broadcast_msg(userName + " has left the chat.", userName);
                     outchan.writeBytes("You left the chat.");

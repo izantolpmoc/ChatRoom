@@ -19,7 +19,7 @@ public class ClientRoom {
         userNames.put(userName, connection);
     }
 
-    public void broadcast_msg(String msg, String emitter) {
+    public synchronized void broadcast_msg(String msg, String emitter) {
         var origin = userNames.get(emitter);
         for(Connection c : connections) {
             if(c != origin) c.send(msg);
